@@ -54,9 +54,17 @@ app.post("/join", (req, res) => {
 
 app.post("/login", (req, res) => {
   if (req.body.id === "hello@jinpill.dev" && req.body.password === "password") {
-    res.sendStatus(200); // OK
+    res.status(200).json({
+      status: 200,
+      code: "SUCCESS",
+      message: "로그인 성공",
+    });
   } else {
-    res.sendStatus(403); // Forbidden
+    res.status(403).json({
+      status: 403,
+      code: "INVALID_CREDENTIALS",
+      message: "아이디 또는 비밀번호가 올바르지 않습니다.",
+    });
   }
 });
 
