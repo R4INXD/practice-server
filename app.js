@@ -16,12 +16,6 @@ app.get("/join", (req, res) => {
   res.sendFile(__dirname + "/pages/join.html");
 });
 
-const func = () => {
-  return;
-};
-const a = func();
-console.log(a);
-
 app.post("/join", (req, res) => {
   const id = req.body.id;
   if (typeof id !== "string" || id.length < 6) {
