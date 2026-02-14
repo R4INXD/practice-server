@@ -53,7 +53,12 @@ app.post("/join", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  if (req.body.id === "hello@jinpill.dev" && req.body.password === "password") {
+  const { id, password } = req.body;
+  const user = userList.find((user) => {
+    return user.id === id;
+  });
+
+  if (id === "hello@jinpill.dev" && password === "password") {
     res.status(200).json({
       status: 200,
       code: "SUCCESS",
