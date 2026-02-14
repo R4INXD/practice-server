@@ -8,6 +8,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const userList = [];
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/pages/index.html");
 });
@@ -37,7 +39,12 @@ app.post("/join", (req, res) => {
     return;
   }
 
-  console.log("new user:", id, password);
+  const newUser = {
+    id: id,
+    password: password,
+  };
+  userList.push(newUser);
+
   res.status(201).json({
     status: 201,
     code: "SUCCESS",
