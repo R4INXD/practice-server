@@ -11,3 +11,10 @@ for (let index = 0; index < array.length; index++) {
 // 값에 접근하는 방법
 array[0];
 array[1];
+
+// 특정 값을 가진 아이템을 가져오는 방법
+const result = array.find((item) => {
+  const firstLetter = item[0];
+  return firstLetter === "J";
+});
+console.log("J로 시작하는 언어:", result);
