@@ -58,26 +58,17 @@ app.post("/login", (req, res) => {
     return user.id === id;
   });
 
-  if (!user) {
+  if (!user || user.password !== password) {
     res.status(403).json({
       status: 403,
       code: "INVALID_CREDENTIALS",
       message: "아이디 또는 비밀번호가 올바르지 않습니다.",
     });
-    return;
-  }
-
-  if (id === "hello@jinpill.dev" && password === "password") {
+  } else {
     res.status(200).json({
       status: 200,
       code: "SUCCESS",
       message: "로그인 성공",
-    });
-  } else {
-    res.status(403).json({
-      status: 403,
-      code: "INVALID_CREDENTIALS",
-      message: "아이디 또는 비밀번호가 올바르지 않습니다.",
     });
   }
 });
