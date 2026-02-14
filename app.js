@@ -20,7 +20,7 @@ app.get("/join", (req, res) => {
 
 app.post("/join", (req, res) => {
   const id = req.body.id;
-  if (typeof id !== "string" || id.length < 6) {
+  if (typeof id !== "string" || id.length < 4) {
     res.status(400).json({
       status: 400,
       code: "INVALID_ID",
@@ -30,7 +30,7 @@ app.post("/join", (req, res) => {
   }
 
   const password = req.body.password;
-  if (typeof password !== "string" || password.length < 8) {
+  if (typeof password !== "string" || password.length < 4) {
     res.status(400).json({
       status: 400,
       code: "INVALID_PASSWORD",
