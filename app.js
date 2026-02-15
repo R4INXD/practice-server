@@ -19,7 +19,8 @@ app.get("/join", (req, res) => {
 });
 
 app.post("/join", (req, res) => {
-  const id = req.body.id;
+  const { id, password, name } = req.body;
+
   if (typeof id !== "string" || id.length < 4) {
     res.status(400).json({
       status: 400,
@@ -29,7 +30,6 @@ app.post("/join", (req, res) => {
     return;
   }
 
-  const password = req.body.password;
   if (typeof password !== "string" || password.length < 4) {
     res.status(400).json({
       status: 400,
@@ -39,7 +39,16 @@ app.post("/join", (req, res) => {
     return;
   }
 
-  db.insert.run(id, password, "");
+  if (typeof name !== "string" || name.length < 2) {
+    res.status(400).json({
+      status: 400,
+      code: "INVALID_NAME",
+      message: "이름이 올바르지 않습니다.",
+    });
+    return;
+  }
+
+  db.insert.run(id, password, name);
 
   res.status(201).json({
     status: 201,
