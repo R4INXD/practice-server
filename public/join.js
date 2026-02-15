@@ -19,6 +19,7 @@ button.addEventListener("click", () => {
     name: name.value,
   }).then((response) => {
     alert(response.message);
+    window.location.href = "/";
   });
 });
 
