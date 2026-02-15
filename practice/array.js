@@ -12,6 +12,9 @@ for (let index = 0; index < array.length; index++) {
 array[0];
 array[1];
 
+// 특정 값을 배열의 맨 마지막 순서로 추가하는 방법
+array.push("Go");
+
 // 특정 값을 가진 아이템을 가져오는 방법
 const result = array.find((item) => {
   const firstLetter = item[0];
