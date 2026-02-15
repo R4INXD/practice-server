@@ -12,12 +12,38 @@
       <a href="/join">Join</a>
     </p>
 
-    <p>
-      <input id="id" type="text" />
-    </p>
-    <p>
-      <input id="password" type="password" />
-    </p>
+    <div>
+      <label>
+        아이디
+        <input id="id" type="text" placeholder="아이디를 입력해주세요" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        비밀번호
+        <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        비밀번호 확인
+        <input
+          id="password-confirm"
+          type="password"
+          placeholder="비밀번호를 한번 더 입력해주세요"
+        />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        이름
+        <input id="name" type="text" placeholder="이름을 입력해주세요" />
+      </label>
+    </div>
+
     <button id="join">Join</button>
 
     <script src="utils/request.js"></script>
