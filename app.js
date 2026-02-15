@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+const db = require("./db");
+
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const userList = [];
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/pages/index.html");
@@ -39,11 +39,7 @@ app.post("/join", (req, res) => {
     return;
   }
 
-  const newUser = {
-    id: id,
-    password: password,
-  };
-  userList.push(newUser);
+  db.insert.run(id, password, "");
 
   res.status(201).json({
     status: 201,
@@ -54,9 +50,7 @@ app.post("/join", (req, res) => {
 
 app.post("/login", (req, res) => {
   const { id, password } = req.body;
-  const user = userList.find((user) => {
-    return user.id === id;
-  });
+  const user = db.select.get(id);
 
   if (!user || user.password !== password) {
     res.status(403).json({
