@@ -12,13 +12,21 @@
       <a href="/join">Join</a>
     </p>
 
-    <p>
-      <input id="id" type="text" />
-    </p>
-    <p>
-      <input id="password" type="password" />
-    </p>
-    <button id="login">Login</button>
+    <div id="login-form">
+      <p>
+        <input id="id" type="text" />
+      </p>
+      <p>
+        <input id="password" type="password" />
+      </p>
+      <button id="login">Login</button>
+    </div>
+
+    <div id="user-info" style="display: none">
+      <h2><span id="user-name"></span>님 환영합니다!</h2>
+      <div>가입일시: <span id="created-at"></span></div>
+      <button id="logout">Logout</button>
+    </div>
 
     <script src="utils/request.js"></script>
     <script src="index.js"></script>
