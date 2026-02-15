@@ -1,0 +1,38 @@
+.param {
+  margin-bottom: 8px;
+}
+
+.param label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.param span {
+  width: 100px;
+  display: block;
+}
+
+.param input {
+  width: 0;
+  height: 24px;
+  flex: 1 1 0;
+}
+
+#join {
+  width: 100px;
+  height: 32px;
+
+  border-radius: 4px;
+  border: none;
+  background-color: dodgerblue;
+
+  color: white;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#join:hover {
+  background-color: #0957a5;
+}
