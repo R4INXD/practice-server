@@ -60,6 +60,7 @@ app.post("/join", (req, res) => {
 app.post("/login", (req, res) => {
   const { id, password } = req.body;
   const user = db.select.get(id);
+  console.log(user);
 
   if (!user || user.password !== password) {
     res.status(403).json({
@@ -72,6 +73,12 @@ app.post("/login", (req, res) => {
       status: 200,
       code: "SUCCESS",
       message: "로그인 성공",
+      data: {
+        key: user.key,
+        id: user.id,
+        name: user.name,
+        createdAt: user.created_at,
+      },
     });
   }
 });
